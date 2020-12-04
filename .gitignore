@@ -1,0 +1,5 @@
+*
+!*.cpp
+!*.CMake
+!*.txt
+!.gitignore
