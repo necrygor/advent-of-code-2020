@@ -1,8 +1,1 @@
-*
-!d*/*.c
-!d*/*.h
-!d*/*.cpp
-!d*/*.hpp
-!d*/*.txt
-!CMake
-!.gitignore
+a.out
