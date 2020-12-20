@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
@@ -15,6 +16,8 @@ int main(int argc, char **argv) {
   string line;
   int seat_id = 0;
   int highest_seat_id = 0;
+  vector<int> seats;
+  int user_seat = 0;
 
   if (argc < 2) {
     cout << "Please enter a filename for input." << endl;
@@ -31,12 +34,18 @@ int main(int argc, char **argv) {
     int col = determine_col(col_part);
 
     seat_id = (row * 8) + col;
+    seats.push_back(seat_id);
     if(seat_id > highest_seat_id) {
       highest_seat_id = seat_id;
     }
   }
 
   cout << "highest_seat: " << highest_seat_id << endl;
+  for(int i = 0; i < seats.size(); i++) {
+    if(seats[i] != seats[i - 1] + 1) user_seat = seats[i] - 1;
+  }
+
+  cout << "seat: " << user_seat << endl;
 }
 
 long determine_row(const string &line) {
